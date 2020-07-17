@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b644710-c773-44ea-9e38-dac2fdfcb1fc" name="Default Changelist" comment="" />
+    <list default="true" id="8b644710-c773-44ea-9e38-dac2fdfcb1fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ConvertUnits.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/ValidateUpdateCity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ValidateDataApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pl/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Cities/citiesFormInsert.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Cities/citiesFormUpdate.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/weather.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/weatherCity.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Cities.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GetApiWeather.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WeatherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/WeatherConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/WeatherConnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Cities/citiesForm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cities/citiesIndex.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -120,10 +147,23 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1em9tuN3GNduiQ2tEGlBF179jLT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Laravel\weather\resources\views" />
+      <recent name="D:\Laravel\weather\app\Http\Requests" />
+      <recent name="D:\Laravel\weather\resources\views\Cities" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Laravel\weather\app" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -153,11 +193,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1594916118308</updated>
-      <workItem from="1594916119609" duration="17857000" />
+      <workItem from="1594916119609" duration="18457000" />
+      <workItem from="1595003475140" duration="17005000" />
+      <workItem from="1595021492541" duration="3072000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

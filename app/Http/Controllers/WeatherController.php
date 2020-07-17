@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\WeatherConnect;
-use Illuminate\Http\Request;
 
-class GetApiWeather extends Controller
+use Illuminate\Http\Request;
+use App\ParseDataWeather;
+
+class WeatherController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,8 +16,7 @@ class GetApiWeather extends Controller
      */
     public function __invoke(Request $request)
     {
-        $weatherConnect = new WeatherConnect();
-        $weatherConnect->getWeather();
-
+        $parseData =  new ParseDataWeather();
+        return view('weather', ['data' => $parseData->getData()]);
     }
 }

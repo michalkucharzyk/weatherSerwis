@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Cities;
+use App\Http\Requests\ValidateInsertCity;
+use App\Http\Requests\ValidateUpdateCity;
+use App\ValidateDataApi;
 use App\WeatherConnect;
 use Illuminate\Http\Request;
 
@@ -31,7 +34,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-       dd($this->modelCities->getAllId());
+       $dataDb = $this->modelCities->all();
+       return view('Cities/citiesIndex', ['dataDb'=>$dataDb]);
     }
 
     /**
@@ -41,7 +45,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-       return view ('Cities/citiesForm');
+       return view ('Cities/citiesFormInsert');
     }
 
     /**
@@ -50,22 +54,22 @@ class CitiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidateInsertCity $request)
     {
-        //sprawdzić czy w bazie już taki istaniej jak tak to nie dodawac a error wyrzucic
-        $validatedData = $request->validate([
-            'city' => 'required|max:255',
-        ]);
         $this->weatherConnect = new WeatherConnect(1, $request->city);
         $dataApi = $this->weatherConnect->getWeather();
-        if($dataApi)
-        {
-            if($this->modelCities->insert($dataApi))
-                return redirect()->route('cities.index')->withSuccess(['Save city Success']);
-            else
-                return redirect()->back()->withErrors('Save city Error!');
-        }else
-            return redirect()->back()->withErrors('There is no such city');
+
+        $vDataApi = new ValidateDataApi($this->modelCities, $dataApi);
+        $statusValidate = $vDataApi->validateData();
+
+        if(count($statusValidate))
+            return redirect()->back()->withErrors($statusValidate);
+
+        if($this->modelCities->insert($dataApi))
+            return redirect()->route('cities.index')->withSuccess(__('messages.welcome'));
+        else
+            return redirect()->back()->withErrors('The attempt to add to the database has failed');
+
     }
 
     /**
@@ -87,7 +91,8 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $city = $this->modelCities->find($id);
+        return view ('Cities/citiesFormUpdate',['city' => $city]);
     }
 
     /**
@@ -97,9 +102,23 @@ class CitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidateUpdateCity $request, $id)
     {
-        //
+
+        $this->weatherConnect = new WeatherConnect(1, $request->city);
+        $dataApi = $this->weatherConnect->getWeather();
+
+        $vDataApi = new ValidateDataApi($this->modelCities, $dataApi);
+        $statusValidate = $vDataApi->validateData($id);
+
+        if(count($statusValidate))
+            return redirect()->back()->withErrors($statusValidate);
+
+        if($this->modelCities->updateNameById($id, $dataApi))
+            return redirect()->route('cities.index')->withSuccess('Update city Success');
+        else
+            return redirect()->back()->withErrors('The attempt to update to the database has failed');
+
     }
 
     /**
@@ -110,6 +129,11 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        if($this->modelCities->deleteCityById($id))
+            return redirect()->route('cities.index')->withSuccess('Delete Success');
+        else
+            return redirect()->route('cities.index')->withErrors('Delete has failed');
+
     }
 }

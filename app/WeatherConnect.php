@@ -26,12 +26,7 @@ class WeatherConnect
      */
     private $params = null;
 
-    /**
-     * @var Cities|null
-     */
-    private $modelCities = null;
-
-    /**
+     /**
      * @var null
      */
     private $url = null;
@@ -45,8 +40,7 @@ class WeatherConnect
     {
         $this->methodApi = $methodApi;
         $this->params = $params;
-        $this->modelCities = new Cities();
-        if($params);
+        if($params)
           $this->setUrl();
     }
 
