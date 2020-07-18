@@ -59,10 +59,10 @@ class WeatherCron extends Command
             {
                 $this->modelCities->updateByIdOpenWeather($item);
             }
-            $this->info('Weather:Cron Data weather update successfully!');
+            $this->info(__('messages.success_update_date_api'));
         } else
         {
-            $this->info('Weather:Cron Data weather update failed!');
+            $this->info(__('messages.field_update_date_api'));
         }
 
     }

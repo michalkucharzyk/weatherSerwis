@@ -80,7 +80,7 @@ class ValidateDataApi
     {
         if (!$this->dataApi)
         {
-            $this->messages[] = 'There is no such city';
+            $this->messages[] = __('validation.not_exist_city');
         }
     }
 
@@ -95,7 +95,7 @@ class ValidateDataApi
             $countCity = $this->modelCities->getByNameCity($this->dataApi['name'], $idIgnoreCity);
 
         if ($countCity !== 0)
-            $this->messages[] = 'This city is already on the list';
+            $this->messages[] =  __('validation.exist_city_db');
     }
 
     /**
@@ -105,7 +105,7 @@ class ValidateDataApi
     {
         $countCitiesDB = $this->modelCities->getCountCities();
         if ($this->countCity <= $countCitiesDB)
-            $this->messages[] = 'You can add 10 cities';
+            $this->messages[] =  __('validation.max_add_city',['count'=>$this->countCity]);
     }
 
     /**
@@ -114,6 +114,6 @@ class ValidateDataApi
     private function validateCountryPLCity()
     {
         if ($this->dataApi['sys']['country'] !== 'PL')
-            $this->messages[] = 'You can only add cities from Poland';
+            $this->messages[] =  __('validation.cities_no_pl');
     }
 }

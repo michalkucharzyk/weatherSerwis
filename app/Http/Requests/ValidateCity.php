@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidateInsertCity extends FormRequest
+class ValidateCity extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class ValidateInsertCity extends FormRequest
     public function rules()
     {
         return [
-            'city' => 'required|max:255',
+            'city' => 'required|max:50',
         ];
     }
 
@@ -34,8 +34,8 @@ class ValidateInsertCity extends FormRequest
     public function messages()
     {
         return [
-            'city.required' => 'A city is required',
-            'city.max' => 'A city is max length 255 chart',
+            'city.required' => __('validation.city_required'),
+            'city.max' =>  __('validation.city_max_length',['count'=> 50]),
         ];
     }
 }

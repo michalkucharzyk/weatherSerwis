@@ -7,12 +7,12 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Id open Weather</th>
-            <th scope="col">City</th>
-            <th scope="col">Country</th>
-            <th scope="col">Created</th>
-            <th scope="col">Updated</th>
-            <th scope="col">Action</th>
+            <th scope="col">{{__('labels.id_weather')}}</th>
+            <th scope="col">{{__('labels.city')}}</th>
+            <th scope="col">{{__('labels.country')}}</th>
+            <th scope="col">{{__('labels.created')}}</th>
+            <th scope="col">{{__('labels.updated')}}</th>
+            <th scope="col">{{__('labels.action')}}</th>
         </tr>
         </thead>
         <tbody>
@@ -27,13 +27,13 @@
                 <td>
                     <div class="d-flex justify-content-between">
                         <div>
-                            <a href="/cities/{{$item->id}}/edit" class="btn btn-primary">Edit</a>
+                            <a href="/cities/{{$item->id}}/edit" class="btn btn-primary">{{__('labels.edit')}}</a>
                         </div>
                         <form method="POST" action="/cities/{{$item->id}}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <div class="form-group">
-                                <input type="submit" class="btn btn-danger " value="Delete">
+                                <input type="submit" class="btn btn-danger " value="{{__('labels.delete')}}">
                             </div>
                         </form>
                     </div>

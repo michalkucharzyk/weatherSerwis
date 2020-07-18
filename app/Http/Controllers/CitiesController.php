@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cities;
-use App\Http\Requests\ValidateInsertCity;
+use App\Http\Requests\ValidateCity;
 use App\Http\Requests\ValidateUpdateCity;
 use App\ValidateDataApi;
 use App\WeatherConnect;
@@ -54,7 +54,7 @@ class CitiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValidateInsertCity $request)
+    public function store(ValidateCity $request)
     {
         $this->weatherConnect = new WeatherConnect(1, $request->city);
         $dataApi = $this->weatherConnect->getWeather();
@@ -66,9 +66,9 @@ class CitiesController extends Controller
             return redirect()->back()->withErrors($statusValidate);
 
         if($this->modelCities->insert($dataApi))
-            return redirect()->route('cities.index')->withSuccess(__('messages.welcome'));
+            return redirect()->route('cities.index')->withSuccess(__('messages.success_add_city'));
         else
-            return redirect()->back()->withErrors('The attempt to add to the database has failed');
+            return redirect()->back()->withErrors(__('messages.error_add_city'));
 
     }
 
@@ -102,7 +102,7 @@ class CitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ValidateUpdateCity $request, $id)
+    public function update(ValidateCity $request, $id)
     {
 
         $this->weatherConnect = new WeatherConnect(1, $request->city);
@@ -115,9 +115,9 @@ class CitiesController extends Controller
             return redirect()->back()->withErrors($statusValidate);
 
         if($this->modelCities->updateNameById($id, $dataApi))
-            return redirect()->route('cities.index')->withSuccess('Update city Success');
+            return redirect()->route('cities.index')->withSuccess(__('messages.success_update_city'));
         else
-            return redirect()->back()->withErrors('The attempt to update to the database has failed');
+            return redirect()->back()->withErrors(__('error_update_city'));
 
     }
 
@@ -131,9 +131,9 @@ class CitiesController extends Controller
     {
 
         if($this->modelCities->deleteCityById($id))
-            return redirect()->route('cities.index')->withSuccess('Delete Success');
+            return redirect()->route('cities.index')->withSuccess(__('messages.success_delete_city'));
         else
-            return redirect()->route('cities.index')->withErrors('Delete has failed');
+            return redirect()->route('cities.index')->withErrors(__('error_delete_city'));
 
     }
 }

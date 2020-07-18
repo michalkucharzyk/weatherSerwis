@@ -8,7 +8,7 @@
             <form action="http://127.0.0.1:8000/cities/{{ $city->id }}" method="POST">
                 @method('PUT')
                 {{ csrf_field() }}
-                <label for="city">City</label>
+                <label for="city">{{__('labels.city')}}</label>
                 <input type="text" name="city" id="city" placeholder="City" value="{{ $city->name }}" />
                 @error('city')
                     <div class="alert alert-danger">{{ $message }}</div>

@@ -7,14 +7,9 @@
         @method('POST')
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="city">City</label>
+            <label for="city">{{__('labels.city')}}</label>
             <input type="text" class="form-control" id="city" name="city" aria-describedby="cityHelp">
-            <small id="cityHelp" class="form-text text-muted">Podaj dowolne miasto z Polski</small>
-            @error('city')
-            <div class="alert alert-danger" role="alert">
-                {{ $message }}
-            </div>
-            @enderror
+            <small id="cityHelp" class="form-text text-muted">{{__('messages.info_inert_city')}}</small>
         </div>
         @if(session('errors'))
             @foreach(session('errors')->all() as $error)
@@ -23,7 +18,7 @@
                 </div>
             @endforeach
         @endif
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">{{__('labels.add')}}</button>
     </form>
 @stop
 
