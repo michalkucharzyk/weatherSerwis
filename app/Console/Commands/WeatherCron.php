@@ -42,8 +42,6 @@ class WeatherCron extends Command
     {
         parent::__construct();
         $this->modelCities = new Cities();
-        $this->weatherConnect = new WeatherConnect(2, $this->modelCities->getAllId());
-
     }
 
     /**
@@ -52,6 +50,7 @@ class WeatherCron extends Command
      */
     public function handle()
     {
+        $this->weatherConnect = new WeatherConnect(2, $this->modelCities->getAllId());
         $data = $this->weatherConnect->getWeather();
         if (is_array($data))
         {

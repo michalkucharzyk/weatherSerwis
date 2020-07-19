@@ -2,27 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b644710-c773-44ea-9e38-dac2fdfcb1fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/weatherCitiesContainer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Cities.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ConvertUnits.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ConvertUnits.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WeatherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WeatherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ParseDataWeather.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ParseDataWeather.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ValidateDataApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ValidateDataApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/WeatherConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/WeatherConnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/pl/labels.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/labels.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/pl/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/messages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/pl/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Cities/citiesFormInsert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cities/citiesForm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Cities/citiesFormUpdate.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/WeatherCron.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/WeatherCron.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_16_183724_create_cities_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_16_193346_alter_table_cities_add_column_weather.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Cities/citiesIndex.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Cities/citiesIndex.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/weather.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/weather.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/weatherCity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/weatherCityRow.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/weatherCitiesContainer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/weatherCitiesContainer.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,12 +137,13 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/pl" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Laravel\weather" />
       <recent name="D:\Laravel\weather\resources\lang\pl" />
       <recent name="D:\Laravel\weather\resources\views" />
       <recent name="D:\Laravel\weather\app\Http\Requests" />
@@ -196,7 +185,7 @@
       <workItem from="1595003475140" duration="17005000" />
       <workItem from="1595021492541" duration="3072000" />
       <workItem from="1595061671998" duration="5769000" />
-      <workItem from="1595156156500" duration="15746000" />
+      <workItem from="1595156156500" duration="19904000" />
     </task>
     <servers />
   </component>

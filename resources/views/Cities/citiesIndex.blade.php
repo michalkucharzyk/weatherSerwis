@@ -41,7 +41,9 @@
                 </td>
             </tr>
         @empty
-            <p>No Cities</p>
+            <div class="alert alert-primary" role="alert">
+                <p>{{__('labels.no_cities')}}</p>
+            </div>
         @endforelse
         </tbody>
     </table>

@@ -2,6 +2,8 @@
     @forelse  ($data as $item)
         @include('weatherCityRow')
     @empty
-        <p>{{__('labels.no_cities')}}</p>
+        <div class="alert alert-primary" role="alert">
+                <p>{{__('labels.no_cities')}}</p>
+        </div>
     @endforelse
 </div>
