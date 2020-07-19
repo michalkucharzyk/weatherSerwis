@@ -21,24 +21,31 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    @stack('scripts')
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">{{__('labels.weather_forecast')}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">{{__('labels.weather')}}<span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->is('/')) ? 'active' : '' }}"
+                   href="{{route('weather')}}">{{__('labels.weather')}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/cities">{{__('labels.city_list')}}</a>
+                <a class="nav-link {{ (request()->is('cities')) ? 'active' : '' }}"
+                   href="{{route('cities.index')}}">{{__('labels.city_list')}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/cities/create">{{__('labels.add_city')}}</a>
+                <a class="nav-link {{ (request()->is('cities/create')) ? 'active' : '' }}"
+                   href="{{route('cities.create')}}">{{__('labels.add_city')}}</a>
             </li>
         </ul>
     </div>

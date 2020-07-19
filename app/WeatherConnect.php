@@ -26,7 +26,7 @@ class WeatherConnect
      */
     private $params = null;
 
-     /**
+    /**
      * @var null
      */
     private $url = null;
@@ -40,8 +40,8 @@ class WeatherConnect
     {
         $this->methodApi = $methodApi;
         $this->params = $params;
-        if($params)
-          $this->setUrl();
+        if ($params)
+            $this->setUrl();
     }
 
     /**
@@ -51,20 +51,20 @@ class WeatherConnect
     {
         $response = Http::get($this->getUrl());
 
-        if($this->checkConnection($response->status()))
+        if ($this->checkConnection($response) === true)
         {
-           return $response->json();
+            return $response->json();
         }
-        return null;
+        return $response->status();
     }
 
     /**
-     * @param $status
+     * @param $response
      * @return bool
      */
-    private function checkConnection($status)
+    private function checkConnection($response)
     {
-        if($status == 200)
+        if ($response->status() == 200)
             return true;
         else
             return false;
@@ -82,8 +82,9 @@ class WeatherConnect
                 $dataParams = array(
                     'q' => $this->params,
                     'appid' => $this->apiKey,
+                    'lang' => 'pl',
                 );
-                $this->url = $this->urlBase.'weather?'. http_build_query($dataParams);
+                $this->url = $this->urlBase . 'weather?' . http_build_query($dataParams);
                 break;
             }
             case 2 :
@@ -93,9 +94,11 @@ class WeatherConnect
                     $dataParams = array(
                         'id' => implode(",", $this->params),
                         'appid' => $this->apiKey,
-                        'units' => 'metric'
+                        'lang' => 'pl',
+                        //'units' => 'metric' wtedy dostaniemy w stopniach Celsiusza temperaturę
+                        //użyłem bez ponieważ chciałem stworzyć klasę do zamienia jednostek.
                     );
-                    $this->url = $this->urlBase.'group?'. http_build_query($dataParams);
+                    $this->url = $this->urlBase . 'group?' . http_build_query($dataParams);
                 }
                 break;
             }

@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'WeatherController');
+Route::get('/', 'WeatherController')->name('weather');
 Route::resource('cities', 'CitiesController');
+//Route::resource('cities', 'CitiesController',[
+//    'names' => [
+//        'index' => 'cities',
+//        'store' => 'cities.store',
+//        'create' => 'cities.create',
+//        'edit' => 'cities.edit',
+//        'destroy' => 'cities.destroy',
+//        'update' => 'cities.update',
+//    ]
+//]);

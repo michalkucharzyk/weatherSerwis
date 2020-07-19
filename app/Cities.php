@@ -13,7 +13,8 @@ class Cities extends Model
     {
         $dataDB = $this->all();
         $citiesId = array();
-        foreach($dataDB as $city) {
+        foreach ($dataDB as $city)
+        {
             $citiesId[] = $city->id_open_weather;
         }
         return $citiesId;
@@ -22,9 +23,9 @@ class Cities extends Model
     /**
      * @param $data
      */
-    public function updateByIdOpenWeather ($data)
+    public function updateByIdOpenWeather($data)
     {
-        $this->where('id_open_weather',$data['id'])->update([
+        $this->where('id_open_weather', $data['id'])->update([
             'weather' => json_encode($data),
         ]);
     }
@@ -57,7 +58,7 @@ class Cities extends Model
      */
     public function getByNameCity($city, $idIgnoreCity = null)
     {
-        if(!$idIgnoreCity)
+        if (!$idIgnoreCity)
             return $this->where('name', $city)->get()->count();
         else
             return $this->where('name', $city)->where('id', '!=', $idIgnoreCity)->get()->count();
@@ -74,9 +75,9 @@ class Cities extends Model
     /**
      * @param $data
      */
-    public function updateNameById ($id,$data)
+    public function updateNameById($id, $data)
     {
-        return $this->where('id',$id)->update([
+        return $this->where('id', $id)->update([
             'name' => $data['name'],
             'id_open_weather' => $data['id'],
             'country' => $data['sys']['country'],

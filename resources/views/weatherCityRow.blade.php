@@ -25,30 +25,30 @@
         <div class="row">
             <div class="col-6 col-md-3 text-center">
                 <h6>{{__('labels.temp')}}</h6>
-                {{$item['weather']['temp']}} &#8451;
+                {{$item['temp']}} &#8451;
             </div>
             <div class="col-6 col-md-3 text-center">
                 <h6>{{__('labels.feels_like')}}</h6>
-                {{$item['weather']['feels_like']}} &#8451;
+                {{$item['feels_like']}} &#8451;
             </div>
             <div class="col-6 col-md-3 text-center">
                 <h6>{{__('labels.temp_min')}}</h6>
-                {{$item['weather']['temp_min']}} &#8451;
+                {{$item['temp_min']}} &#8451;
             </div>
             <div class="col-6 col-md-3 text-center">
                 <h6>{{__('labels.temp_max')}}</h6>
-                {{$item['weather']['temp_max']}} &#8451;
+                {{$item['temp_max']}} &#8451;
             </div>
         </div>
         <hr>
         <div class="row justify-content-center">
             <div class="col-6 col-md-2 text-center">
                 <h6>{{__('labels.pressure')}}</h6>
-                {{$item['weather']['pressure']}} hPa
+                {{$item['pressure']}} hPa
             </div>
             <div class="col-6 col-md-2 text-center">
                 <h6>{{__('labels.humidity')}}</h6>
-                {{$item['weather']['humidity']}} %
+                {{$item['humidity']}} %
             </div>
             <div class="col-6 col-md-2 text-center">
                 <h6>{{__('labels.speed')}}</h6>
@@ -56,7 +56,7 @@
             </div>
             <div class="col-6 col-md-2 text-center">
                 <h6>{{__('labels.deg')}}</h6>
-                {{$item['wind']['deg']}}
+                {{$item['wind']['deg']}} deg
             </div>
             <div class="col-6 col-md-2 text-center">
                 <h6>{{__('labels.clouds')}}</h6>

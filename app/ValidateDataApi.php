@@ -61,11 +61,11 @@ class ValidateDataApi
     public function validateData($idIgnoreCity = null)
     {
         $this->messages = [];
-        $this->validateIssetCityInApi();
+        $this->validateCodeApi();
         if (empty($this->messages))
         {
             $this->validateCountryPLCity();
-            if(!$idIgnoreCity)
+            if (!$idIgnoreCity)
                 $this->validateCountCity();
 
             $this->validateIssetCityInDB($idIgnoreCity);
@@ -76,11 +76,33 @@ class ValidateDataApi
     /**
      *
      */
+    private function validateCodeApi()
+    {
+        if (!is_array($this->dataApi))
+        {
+            switch ($this->dataApi)
+            {
+                case 404:
+                    $this->messages[] = __('validation.not_exist_city');
+                    break;
+                case 401:
+                    $this->messages[] = __('validation.wrong_api_key');
+                    break;
+                default:
+                    $this->messages[] = __('validation.error_api');
+                    break;
+            }
+        }
+    }
+
+    /**
+     *
+     */
     private function validateIssetCityInApi()
     {
         if (!$this->dataApi)
         {
-            $this->messages[] = __('validation.not_exist_city');
+
         }
     }
 
@@ -95,7 +117,7 @@ class ValidateDataApi
             $countCity = $this->modelCities->getByNameCity($this->dataApi['name'], $idIgnoreCity);
 
         if ($countCity !== 0)
-            $this->messages[] =  __('validation.exist_city_db');
+            $this->messages[] = __('validation.exist_city_db');
     }
 
     /**
@@ -105,7 +127,7 @@ class ValidateDataApi
     {
         $countCitiesDB = $this->modelCities->getCountCities();
         if ($this->countCity <= $countCitiesDB)
-            $this->messages[] =  __('validation.max_add_city',['count'=>$this->countCity]);
+            $this->messages[] = __('validation.max_add_city', ['count' => $this->countCity]);
     }
 
     /**
@@ -114,6 +136,6 @@ class ValidateDataApi
     private function validateCountryPLCity()
     {
         if ($this->dataApi['sys']['country'] !== 'PL')
-            $this->messages[] =  __('validation.cities_no_pl');
+            $this->messages[] = __('validation.cities_no_pl');
     }
 }

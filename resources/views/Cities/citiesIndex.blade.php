@@ -3,7 +3,7 @@
 @section('title', 'List Cities')
 
 @section('content')
-    <table class="table" >
+    <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -27,9 +27,10 @@
                 <td>
                     <div class="d-flex justify-content-between">
                         <div>
-                            <a href="/cities/{{$item->id}}/edit" class="btn btn-primary">{{__('labels.edit')}}</a>
+                            <a href="{{route('cities.edit',['city' =>$item->id])}}"
+                               class="btn btn-primary">{{__('labels.edit')}}</a>
                         </div>
-                        <form method="POST" action="/cities/{{$item->id}}">
+                        <form method="POST" action="{{route('cities.destroy',['city' =>$item->id])}}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <div class="form-group">

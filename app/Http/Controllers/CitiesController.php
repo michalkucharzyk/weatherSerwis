@@ -20,7 +20,7 @@ class CitiesController extends Controller
     /**
      * @var null
      */
-    private $modelCities =null;
+    private $modelCities = null;
 
     public function __construct()
     {
@@ -34,8 +34,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-       $dataDb = $this->modelCities->all();
-       return view('Cities/citiesIndex', ['dataDb'=>$dataDb]);
+        $dataDb = $this->modelCities->all();
+        return view('Cities/citiesIndex', ['dataDb' => $dataDb]);
     }
 
     /**
@@ -45,13 +45,13 @@ class CitiesController extends Controller
      */
     public function create()
     {
-       return view ('Cities/citiesFormInsert');
+        return view('Cities/citiesForm', ['city' => '']);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ValidateCity $request)
@@ -62,10 +62,10 @@ class CitiesController extends Controller
         $vDataApi = new ValidateDataApi($this->modelCities, $dataApi);
         $statusValidate = $vDataApi->validateData();
 
-        if(count($statusValidate))
+        if (count($statusValidate))
             return redirect()->back()->withErrors($statusValidate);
 
-        if($this->modelCities->insert($dataApi))
+        if ($this->modelCities->insert($dataApi))
             return redirect()->route('cities.index')->withSuccess(__('messages.success_add_city'));
         else
             return redirect()->back()->withErrors(__('messages.error_add_city'));
@@ -75,7 +75,7 @@ class CitiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -86,20 +86,20 @@ class CitiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $city = $this->modelCities->find($id);
-        return view ('Cities/citiesFormUpdate',['city' => $city]);
+        return view('Cities/citiesForm', ['city' => $city]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(ValidateCity $request, $id)
@@ -111,10 +111,10 @@ class CitiesController extends Controller
         $vDataApi = new ValidateDataApi($this->modelCities, $dataApi);
         $statusValidate = $vDataApi->validateData($id);
 
-        if(count($statusValidate))
+        if (count($statusValidate))
             return redirect()->back()->withErrors($statusValidate);
 
-        if($this->modelCities->updateNameById($id, $dataApi))
+        if ($this->modelCities->updateNameById($id, $dataApi))
             return redirect()->route('cities.index')->withSuccess(__('messages.success_update_city'));
         else
             return redirect()->back()->withErrors(__('error_update_city'));
@@ -124,13 +124,13 @@ class CitiesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
 
-        if($this->modelCities->deleteCityById($id))
+        if ($this->modelCities->deleteCityById($id))
             return redirect()->route('cities.index')->withSuccess(__('messages.success_delete_city'));
         else
             return redirect()->route('cities.index')->withErrors(__('error_delete_city'));
